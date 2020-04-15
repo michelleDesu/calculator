@@ -19,17 +19,7 @@ public class AppTest
         assertTrue( true );
     }
 
-    /**
-     * Testing agefunction
-     */
-    @Test
-    public void test_isAdult_true(){
-        int age = 18;
-        Assert.assertTrue(App.isAdult((age)));
-    }
-    @Test
-    public void test_isAdult_false(){
-        int age = 17;
-        Assert.assertFalse(App.isAdult((age)));
-    }
+
+
+
 }
