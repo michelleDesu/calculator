@@ -12,21 +12,25 @@ import java.util.concurrent.ThreadLocalRandom;
 public class App {
 
     public static void main( String[] args ) {
+        //runs the calculater.
+        runCalculate();
+    }
+
+    //Runs the calculator
+    public static void runCalculate(){
         double  number = 0,
-                secondNumber = 0,
+                secondNumber,
                 sum = 0;
-        boolean quit = false;
-        //Scanner obj = new Scanner(System.in);
         Calculus calc = new Calculus();
+        boolean quit = false,
+                printSum = true;
         String state = "number";
 
         //The calculator will run util q is pressed.
         while (!quit) {
-            //String input;
-           // String input = ScannerUtil.getUserInput();
 
             if (state.equals("number")) {
-                number = getInputNumber();;
+                number = getInputNumber();
                 state = "operator";
 
             } else {
@@ -38,61 +42,68 @@ public class App {
                     //If q is pressed the user wants to exit the program
                     case "q":
                         quit = true;
+                        printSum = false;
                         System.out.println("Thank you for your time!\n See you soon!");
                         break;
                     //add two numbers together and stores them in another
                     case "c":
-                            state = "number";
+                        state = "number";
+                        printSum = false;
                         break;
 
                     case "+":
                         secondNumber = getInputNumber();
                         sum = calc.addNumbers(number, secondNumber );
-                        number = sum;
-                        printSum(sum);
+                        //number = sum;
                         break;
 
                     case "-":
                         secondNumber = getInputNumber();
                         sum = calc.subractNumbers(number, secondNumber);
-                        number = sum;
-                        printSum(sum);
+                       // number = sum;
                         break;
 
                     case "/":
                         secondNumber = getInputNumber();
                         if(calc.isDivisionByZero(secondNumber) ){
+                            printSum = false;
                             break;
                         }
                         sum = calc.divideNumbers(number, secondNumber);
-                        number = sum;
-                        printSum(sum);
+                        //number = sum;
                         break;
 
                     case "*":
                         secondNumber = getInputNumber();
                         sum = calc.multiplyNumbers(number, secondNumber);
-                        number = sum;
-                        printSum(sum);
+                       // number = sum;
                         break;
 
                     default:
+                        printSum = false;
                         System.out.println("The value you typed is none of the suggested alternatives");
-
                 }
-                //choice = obj.nextLine();
+                //saves the number for continued calculations
+                number = sum;
+               if (printSum){
+                   printSum(sum);
+               }else{
+                   printSum = true;
+               }
+
+
             }
 
 
         }
+
 
     }
 
     //Gets a number from user
     public static double getInputNumber(){
       System.out.print("Write a number: ");
-      double number =  ScannerUtil.getDoubleFromUser();
-        return number;
+      return ScannerUtil.getDoubleFromUser();
     }
 
     //Prints out the sum as a string to the console
