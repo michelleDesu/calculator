@@ -116,7 +116,7 @@ public class CalculusTest {
         double firstNum = 10,
                 secondNum = 2,
                 actualSum =Calculus.multiplyNumbers(firstNum, secondNum),
-                expectedSum = 20 ;
+                expectedSum = 20;
 
         Assert.assertEquals(expectedSum, actualSum, 0);
 

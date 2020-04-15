@@ -54,13 +54,11 @@ public class App {
                     case "+":
                         secondNumber = getInputNumber();
                         sum = calc.addNumbers(number, secondNumber );
-                        //number = sum;
                         break;
 
                     case "-":
                         secondNumber = getInputNumber();
                         sum = calc.subractNumbers(number, secondNumber);
-                       // number = sum;
                         break;
 
                     case "/":
@@ -70,13 +68,11 @@ public class App {
                             break;
                         }
                         sum = calc.divideNumbers(number, secondNumber);
-                        //number = sum;
                         break;
 
                     case "*":
                         secondNumber = getInputNumber();
                         sum = calc.multiplyNumbers(number, secondNumber);
-                       // number = sum;
                         break;
 
                     default:
