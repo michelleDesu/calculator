@@ -12,7 +12,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class App {
 
     public static void main( String[] args ) {
-        //runs the calculater.
+        //runs the calculator.
         runCalculate();
     }
 
